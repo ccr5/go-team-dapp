@@ -1,19 +1,19 @@
 import { EmojiEvents, Grade, Token } from "@mui/icons-material"
 
-interface AssetsProps {
+interface AssetsInfoProps {
   type: string
   amount: number
   description?: boolean
 }
 
-function Assets(props: AssetsProps) {
+function AssetsInfo(props: AssetsInfoProps) {
   return (
     <div className="flex flex-row justify-center items-start gap-2">
       <div>
       {
-        props.type == "milestones" ? <EmojiEvents className="text-[#079D95]" /> : 
-          props.type == "jobs" ? <Grade className="text-[#079D95]" /> : 
-            <Token className="text-[#079D95]" />
+        props.type == "milestones" ? <EmojiEvents className="text-yellow-600" /> : 
+          props.type == "jobs" ? <Grade className="text-yellow-600" /> : 
+            <Token className="text-yellow-600" />
       }
       </div>
       <div>{props.amount}</div>
@@ -24,4 +24,4 @@ function Assets(props: AssetsProps) {
   )
 }
 
-export { Assets }
+export { AssetsInfo }
