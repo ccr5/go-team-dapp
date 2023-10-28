@@ -9,7 +9,16 @@ export default function Home() {
       <Header />
       <div className='flex flex-col w-full h-full items-center justify-center gap-5 p-5'>
         <TeamAsset />
-        <PlayerAsset />
+        <br />
+        <hr />
+        <div className='grid grid-cols-3 w-full gap-3'>
+          <PlayerAsset />
+          <PlayerAsset />
+          <PlayerAsset />
+          <PlayerAsset />
+          <PlayerAsset />
+          <PlayerAsset />
+        </div>
       </div>
     </main>
   )
