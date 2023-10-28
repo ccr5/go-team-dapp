@@ -3,7 +3,7 @@ import '@/styles/globals.css'
 import merge from 'lodash.merge'
 import '@rainbow-me/rainbowkit/styles.css';
 
-import { RainbowKitProvider, getDefaultWallets, midnightTheme } from '@rainbow-me/rainbowkit'
+import { RainbowKitProvider, Theme, getDefaultWallets, midnightTheme } from '@rainbow-me/rainbowkit'
 import type { AppProps } from 'next/app'
 import { WagmiConfig, configureChains, createConfig, mainnet } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
@@ -29,11 +29,12 @@ const config = createConfig({
   webSocketPublicClient,
 })
 
-const myTheme = merge(midnightTheme(), {
+const myTheme: Theme = merge(midnightTheme(), {
   colors: {
     accentColor: '#079D95',
     accentColorForeground: '#fff',
-  },
+    connectButtonBackground: "#079D95" 
+  }
 })
 
 

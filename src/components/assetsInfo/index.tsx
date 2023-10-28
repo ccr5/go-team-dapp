@@ -11,9 +11,9 @@ function AssetsInfo(props: AssetsInfoProps) {
     <div className="flex flex-row justify-center items-start gap-2">
       <div>
       {
-        props.type == "milestones" ? <EmojiEvents className="text-yellow-600" /> : 
-          props.type == "jobs" ? <Grade className="text-yellow-600" /> : 
-            <Token className="text-yellow-600" />
+        props.type == "milestones" ? <EmojiEvents className="text-mainColor" /> : 
+          props.type == "jobs" ? <Grade className="text-mainColor" /> : 
+            <Token className="text-mainColor" />
       }
       </div>
       <div>{props.amount}</div>

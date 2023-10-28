@@ -10,7 +10,7 @@ function Header() {
       <div className='flex items-center'>
         <Image alt="" src={'/uniswap.png'} height={48} width={48}/>
       </div>
-      {/* <Filters /> */}
+      <Filters />
       <div className='flex'>
         <ConnectButton />
       </div>
