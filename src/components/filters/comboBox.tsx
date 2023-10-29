@@ -10,7 +10,11 @@ function ComboBox() {
       <select className="p-1 bg-white">
         {
           assetsType && assetsType.types.map((value) => {
-            return ( <option key={value} className="w-full text-center" value={value}>value</option> )
+            return ( 
+              <option key={value} className="w-full text-center" value={value}>
+                {value}
+              </option>
+            )
           })
         }
       </select>

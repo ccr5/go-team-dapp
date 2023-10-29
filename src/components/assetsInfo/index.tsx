@@ -1,3 +1,4 @@
+import { reduceBalance } from "@/utils/wallets"
 import { EmojiEvents, Grade, Token } from "@mui/icons-material"
 
 interface AssetsInfoProps {
@@ -8,7 +9,7 @@ interface AssetsInfoProps {
 
 function AssetsInfo(props: AssetsInfoProps) {
   return (
-    <div className="flex flex-row justify-center items-start gap-2">
+    <div className="flex flex-row justify-center items-start gap-1">
       <div>
       {
         props.type == "milestones" ? <EmojiEvents className="text-mainColor" /> : 
@@ -16,7 +17,7 @@ function AssetsInfo(props: AssetsInfoProps) {
             <Token className="text-mainColor" />
       }
       </div>
-      <div>{props.amount}</div>
+      <div>{reduceBalance(props.amount)}</div>
       {
         props.description && <div>{props.type}</div>
       }

@@ -15,7 +15,10 @@ function SearchBar() {
         </option>
         {
           wallets.wallets && wallets.wallets.participants.map((address) => {
-            return ( <option key={address} className="w-full text-center" value={address}>address</option> )
+            return ( 
+              <option key={address} className="w-full text-center" value={address}>
+                {reduceAddress(address)}
+              </option> )
           })
         }
       </select>
