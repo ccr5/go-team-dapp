@@ -8,6 +8,9 @@ import type { AppProps } from 'next/app'
 import { WagmiConfig, configureChains, createConfig, mainnet } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 import { polygonMumbai } from '@wagmi/core/chains'
+import { WalletsContext } from '@/context/wallets/walletsContext';
+import { useState } from 'react';
+import { IWalletsContext, Wallets } from '@/context/wallets/iWalletsContext';
 
 const projectId = '62c5cdca62176564fcac7632e68a90a6'
 
@@ -37,12 +40,25 @@ const myTheme: Theme = merge(midnightTheme(), {
   }
 })
 
-
 export default function App({ Component, pageProps }: AppProps) {
+  const [walletsContext, setWalletsContext] = useState<IWalletsContext>({
+    wallets: null,
+    handleWalletsContext: handleWalletsContext
+  })
+
+  function handleWalletsContext(value: Wallets | null) {
+    setWalletsContext({
+      wallets: value,
+      handleWalletsContext: handleWalletsContext
+    })
+  }
+
   return (
     <WagmiConfig config={config}>
       <RainbowKitProvider chains={chains} theme={myTheme}>
-        <Component {...pageProps} />
+        <WalletsContext.Provider value={walletsContext}>
+          <Component {...pageProps} />
+        </WalletsContext.Provider>
       </RainbowKitProvider>
     </WagmiConfig>
   )
