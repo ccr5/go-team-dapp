@@ -8,7 +8,8 @@ function Header() {
   return (
      <div className="flex flex-row w-full h-[80px] px-8 py-4 items-center justify-between">
       <div className='flex items-center'>
-        <Image alt="" src={'/uniswap.png'} height={48} width={48}/>
+        {/* <Image alt="" src={'/uniswap.png'} height={48} width={48}/> */}
+        Logo
       </div>
       <Filters />
       <div className='flex'>

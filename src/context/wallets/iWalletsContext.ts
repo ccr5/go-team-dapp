@@ -1,6 +1,6 @@
 interface Wallets {
-  team: string,
-  participants: string[]
+  team: `0x${string}`,
+  participants: `0x${string}`[]
 }
 
 interface IWalletsContext {

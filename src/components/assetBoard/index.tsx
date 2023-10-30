@@ -1,7 +1,6 @@
 import { Fullscreen } from "@mui/icons-material";
 import { AssetIcon } from "../assetIcon";
 import { WalletAssetsInfos } from "@/utils/goTeam";
-import { useEffect } from "react";
 
 interface AssetBoardProps {
   assets: WalletAssetsInfos[]

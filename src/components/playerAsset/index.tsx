@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AssetsInfo } from "../assetsInfo";
-import { ArrowCircleLeft, ArrowCircleRight } from "@mui/icons-material";
+import { ArrowCircleLeft, ArrowCircleRight, PropaneSharp } from "@mui/icons-material";
 import { AssetBoard } from "../assetBoard";
 
 function PlayerAsset() {
@@ -33,7 +33,7 @@ function PlayerAsset() {
       {
         isOpen && 
           <div className="flex flex-col w-[200px] h-[250px] shrink-0 bg-white rounded-2xl p-2">
-              <AssetBoard />
+              <AssetBoard assets={[]} />
           </div>
       }
     </div>

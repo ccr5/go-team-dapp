@@ -11,6 +11,8 @@ import { polygonMumbai } from '@wagmi/core/chains'
 import { WalletsContext } from '@/context/wallets/walletsContext';
 import { useState } from 'react';
 import { IWalletsContext, Wallets } from '@/context/wallets/iWalletsContext';
+import { ITeamWalletContext } from '@/context/teamWallet/iTeamWalletContext';
+import { TeamWalletContext } from '@/context/teamWallet/teamWalletContext';
 
 const projectId = '62c5cdca62176564fcac7632e68a90a6'
 
@@ -46,6 +48,11 @@ export default function App({ Component, pageProps }: AppProps) {
     handleWalletsContext: handleWalletsContext
   })
 
+  const [teamWalletContext, setTeamWalletContext] = useState<ITeamWalletContext>({
+    teamWallet: null,
+    handleTeamWalletContext: handleTeamWalletContext
+  })
+
   function handleWalletsContext(value: Wallets | null) {
     setWalletsContext({
       wallets: value,
@@ -53,11 +60,20 @@ export default function App({ Component, pageProps }: AppProps) {
     })
   }
 
+  function handleTeamWalletContext(value: `0x${string}` | null) {
+    setTeamWalletContext({
+      teamWallet: value,
+      handleTeamWalletContext: handleTeamWalletContext
+    })
+  }
+
   return (
     <WagmiConfig config={config}>
       <RainbowKitProvider chains={chains} theme={myTheme}>
         <WalletsContext.Provider value={walletsContext}>
-          <Component {...pageProps} />
+          <TeamWalletContext.Provider value={teamWalletContext}>
+            <Component {...pageProps} />
+          </TeamWalletContext.Provider>
         </WalletsContext.Provider>
       </RainbowKitProvider>
     </WagmiConfig>

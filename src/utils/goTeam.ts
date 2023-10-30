@@ -60,7 +60,7 @@ async function loadAddressAssets(wallet: string) {
 
   for (let index = 0; index < count; index++) {
     const uri: string = await erc1155.uri(index)
-    const assetInfo = await fetch(uri.replace("{id}", index.toString()))
+    const assetInfo = await fetch(uri.replace("{id}", index.toString()), {cache: "force-cache"})
     const balance: number = Number(await erc1155.balanceOf(wallet, index))
     response.push({assets: await assetInfo.json(), balance })
   }
