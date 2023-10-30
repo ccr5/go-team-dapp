@@ -1,3 +1,4 @@
+import { AssetViewer } from '@/components/assetViewer'
 import { Header } from '@/components/header'
 import { TeamAsset } from '@/components/teamAsset'
 import { TeamWalletContext } from '@/context/teamWallet/teamWalletContext'
@@ -36,7 +37,7 @@ export default function Home() {
         />
       </div>
       <div className='flex flex-row w-full h-full items-center justify-center gap-5 p-5 mt-5'>
-        Click some asset to see details
+        <AssetViewer />
       </div>
     </main>
   )

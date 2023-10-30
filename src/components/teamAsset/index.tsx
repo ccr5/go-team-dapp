@@ -57,19 +57,6 @@ function TeamAsset(props: TeamAssetProps) {
     }
   }, [walletsAssets])
 
-  function load() {
-    setIsLoading(true)
-    loadAddressAssets(props.address)
-      .then((value) => { 
-        if (value) setWalletsAssets(value)
-        setIsLoading(false)
-      })
-      .catch((e) => {
-        console.log('load error: ', e)
-        setIsLoading(false)
-      })
-  }
-
   return isLoading ? <TeamAssetSkeleton /> : (
     <div className="flex flex-col w-full max-w-xl p-4 gap-5 items-center bg-white rounded-xl">
       <div className="flex flex-row gap-2 w-full justify-center text-center">

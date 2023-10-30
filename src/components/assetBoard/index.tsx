@@ -16,7 +16,8 @@ function AssetBoard(props: AssetBoardProps) {
               return (
                 <AssetIcon 
                   key={value.assets.name}
-                  type="milestone"
+                  type={value.assets.type}
+                  name={value.assets.name}
                   assetImageUrl={value.assets.image}
                 />
               )
