@@ -28,6 +28,8 @@ function AssetBoard(props: AssetBoardProps) {
                     type={value.assets.type}
                     name={value.assets.name}
                     assetImageUrl={value.assets.image}
+                    width={38}
+                    height={38}
                   />
                 </button>
               )
