@@ -37,14 +37,38 @@ export interface WalletAssetsInfos {
   balance: number
 }
 
+async function mintToken(account: string, tokenId: number, amount: number) {
+  const provider = new ethers.BrowserProvider((window as any).ethereum)
+  const signer = await provider.getSigner()
+  const erc1155 = new ethers.Contract(
+    process.env.GO_TEAM_ADDRESS || "",
+    goTeam.abi,
+    signer
+  )
+
+  await erc1155.mint(
+    account, 
+    tokenId, 
+    amount, 
+    ethers.hashMessage(JSON.stringify({
+      account,
+      tokenId,
+      amount
+    })
+  ))
+    .then(() => console.log("Ok"))
+    .catch((e) => console.log("error: ", e))
+}
+
 async function loadAddressAssets(wallet: string) {
   let response: WalletAssetsInfos[] = []
 
   const provider = new ethers.BrowserProvider((window as any).ethereum)
+  const signer = await provider.getSigner()
   const erc1155 = new ethers.Contract(
     process.env.GO_TEAM_ADDRESS || "",
     goTeam.abi,
-    provider
+    signer
   )
 
   let end = false
@@ -72,4 +96,4 @@ async function loadAddressAssets(wallet: string) {
 
 }
 
-export { loadAddressAssets }
+export { loadAddressAssets, mintToken }
