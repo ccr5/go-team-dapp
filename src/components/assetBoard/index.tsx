@@ -20,7 +20,7 @@ function AssetBoard(props: AssetBoardProps) {
               return (
                 <button 
                   key={value.assets.name}
-                  className="flex w-min h-min justify-center items-center"
+                  className="flex w-10 h-10 justify-center items-center"
                   onClick={() => { assetOnFocus.handleAssetOnFocusContext(value) }}
                 >
                   <AssetIcon 
