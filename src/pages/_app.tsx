@@ -13,6 +13,9 @@ import { useState } from 'react';
 import { IWalletsContext, Wallets } from '@/context/wallets/iWalletsContext';
 import { ITeamWalletContext } from '@/context/teamWallet/iTeamWalletContext';
 import { TeamWalletContext } from '@/context/teamWallet/teamWalletContext';
+import { WalletAssetsInfos } from '@/utils/goTeam';
+import { IAssetOnFocusContext } from '@/context/assetOnFocus/iAssetOnFocusContext';
+import { AssetOnFocusContext } from '@/context/assetOnFocus/assetOnFocusContext';
 
 const projectId = '62c5cdca62176564fcac7632e68a90a6'
 
@@ -53,6 +56,11 @@ export default function App({ Component, pageProps }: AppProps) {
     handleTeamWalletContext: handleTeamWalletContext
   })
 
+  const [assetOnFocusContext, setAssetOnFocusContext] = useState<IAssetOnFocusContext>({
+    asset: null,
+    handleAssetOnFocusContext: handleAssetOnFocusContext
+  })
+
   function handleWalletsContext(value: Wallets | null) {
     setWalletsContext({
       wallets: value,
@@ -67,12 +75,21 @@ export default function App({ Component, pageProps }: AppProps) {
     })
   }
 
+  function handleAssetOnFocusContext(asset: WalletAssetsInfos | null) {
+    setAssetOnFocusContext({
+      asset: asset,
+      handleAssetOnFocusContext: handleAssetOnFocusContext
+    })
+  }
+
   return (
     <WagmiConfig config={config}>
       <RainbowKitProvider chains={chains} theme={myTheme}>
         <WalletsContext.Provider value={walletsContext}>
           <TeamWalletContext.Provider value={teamWalletContext}>
-            <Component {...pageProps} />
+            <AssetOnFocusContext.Provider value={assetOnFocusContext}>
+              <Component {...pageProps} />
+            </AssetOnFocusContext.Provider>
           </TeamWalletContext.Provider>
         </WalletsContext.Provider>
       </RainbowKitProvider>

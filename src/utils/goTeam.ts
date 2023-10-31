@@ -2,6 +2,7 @@ import { ethers } from "ethers";
 import goTeam from "../../contracts/GoTeam.sol/GoTeam.json"
 
 export interface JobAsset {
+  id: number
   name: string
   type: string
   description: string
@@ -13,6 +14,7 @@ export interface JobAsset {
 }
 
 export interface MilestoneAsset {
+  id: number
   name: string
   type: string
   description: string
@@ -22,6 +24,7 @@ export interface MilestoneAsset {
 }
 
 export interface TeamTokenAsset {
+  id: number
   name: string
   type: string
   symbol: string

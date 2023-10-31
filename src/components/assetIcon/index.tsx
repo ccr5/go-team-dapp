@@ -4,19 +4,28 @@ interface AssetIconProps {
   type: string
   name: string
   assetImageUrl: string
+  height?: number | null
+  width?: number | null
+  animated?: boolean
 }
 
 function AssetIcon(props: AssetIconProps) {
+  const animation = {
+    transform: props.animated ? 'rotateY(360deg)' : null
+  }
+
   return (
-    <div className={`flex w-10 h-10 rounded-full p-1 ${
-      props.type == "milestone" ? "bg-red-900" : "bg-white"}
+    <div className={`flex w-${props.width || 10} h-${props.height || 10}
+      rounded-full shadow-xl p-1 ${props.type == "milestone" ? "bg-red-900" : "bg-white"}
+      ${props.animated && 'animate-pulse'}
     `}>
       <Image 
         alt="" 
         title={props.name} 
         src={props.assetImageUrl}
-        width={38} height={38}
-         className="rounded-full" 
+        width={props.width || 38}
+        height={props.height || 38}
+        className="rounded-full" 
       />
     </div>
   )

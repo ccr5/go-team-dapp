@@ -1,12 +1,16 @@
 import { Fullscreen } from "@mui/icons-material";
 import { AssetIcon } from "../assetIcon";
 import { WalletAssetsInfos } from "@/utils/goTeam";
+import { useContext } from "react";
+import { AssetOnFocusContext } from "@/context/assetOnFocus/assetOnFocusContext";
 
 interface AssetBoardProps {
   assets: WalletAssetsInfos[]
 }
 
 function AssetBoard(props: AssetBoardProps) {
+  const assetOnFocus = useContext(AssetOnFocusContext)
+
   return (
     <div className="flex flex-row justify-between items-start w-full h-full rounded-2xl bg-[#C4D1D1]">
       <div className="flex flex-wrap w-5/6 h-full min-h-[100px] max-h-[300px] p-2 gap-5 shrink-0">
@@ -14,12 +18,18 @@ function AssetBoard(props: AssetBoardProps) {
           props.assets.map((value) => {
             if (value.balance > 0 && value.assets.type != "reward") {
               return (
-                <AssetIcon 
+                <button 
                   key={value.assets.name}
-                  type={value.assets.type}
-                  name={value.assets.name}
-                  assetImageUrl={value.assets.image}
-                />
+                  className="flex w-min h-min justify-center items-center"
+                  onClick={() => { assetOnFocus.handleAssetOnFocusContext(value) }}
+                >
+                  <AssetIcon 
+                    key={value.assets.name}
+                    type={value.assets.type}
+                    name={value.assets.name}
+                    assetImageUrl={value.assets.image}
+                  />
+                </button>
               )
             }
           })
