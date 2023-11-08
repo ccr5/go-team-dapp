@@ -27,6 +27,7 @@ function AssetBoard(props: AssetBoardProps) {
                     key={value.assets.name}
                     type={value.assets.type}
                     name={value.assets.name}
+                    currentPercent={'level' in value.assets ? value.assets.level / value.assets.maxlevel : undefined}
                     assetImageUrl={value.assets.image}
                     width={38}
                     height={38}

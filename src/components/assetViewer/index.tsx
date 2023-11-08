@@ -1,6 +1,7 @@
 import { useContext } from "react"
 import { AssetOnFocusContext } from "@/context/assetOnFocus/assetOnFocusContext"
 import { AssetIcon } from "../assetIcon"
+import { Flag, FlagOutlined } from "@mui/icons-material"
 
 function AssetViewer() {
   const asset = useContext(AssetOnFocusContext)
@@ -12,6 +13,7 @@ function AssetViewer() {
           key={asset.asset.assets.name}
           type={asset.asset.assets.type}
           name={asset.asset.assets.name}
+          currentPercent={'level' in asset.asset.assets ? asset.asset.assets.level / asset.asset.assets.maxlevel : undefined}
           assetImageUrl={asset.asset.assets.image}
           width={300}
           height={300}
@@ -26,15 +28,26 @@ function AssetViewer() {
         <div className="flex w-full justify-center items-center text-center">
           {'description' in asset.asset.assets && asset.asset.assets.description}
         </div>
-        <div className="flex w-full justify-center items-center text-center gap-3">
-          <strong>Balance: </strong>{asset.asset.balance}
-        </div>
         {'maxlevel' in asset.asset.assets && 
           <div className="grid grid-cols-2 w-full justify-center items-center text-center gap-4 p-4">
             <div className="font-bold">level</div>
-            <div>{asset.asset.assets.level}/{asset.asset.assets.maxlevel}</div>
+            <div className="flex w-full justify-center items-center text-center gap-3">
+              {asset.asset.assets.level}/{asset.asset.assets.maxlevel} ({
+                asset.asset.assets.level == 1 ? "brass" :
+                  asset.asset.assets.level == 2 ? "bronze" :
+                    asset.asset.assets.level == 3 ? "silver" :
+                      asset.asset.assets.level == 2 ? "gold" :
+                        "diamond"
+              })
+            </div>
             <div className="font-bold">Required amount</div>
-            <div>{asset.asset.assets.amountToComplete}</div>
+            <div className="flex w-full justify-center items-center text-center gap-3">
+              {asset.asset.balance}/{asset.asset.assets.amountToComplete}
+              {
+                asset.asset.balance / asset.asset.assets.amountToComplete == 1 ? 
+                  <Flag className="text-green-600" /> : <Flag className="text-green-300" />
+              }
+            </div>
           </div>
         }
         {'teamTokenReward' in asset.asset.assets && 

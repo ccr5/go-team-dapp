@@ -9,7 +9,7 @@ export default function handler(
   const { id } = req.query
 
   if (id) {
-    fetch(`${process.env.METADATA_BUCKET_URL}/${id}.json`)
+    fetch(`${process.env.METADATA_BUCKET_URL}/${id}.json`, {cache: "force-cache"})
       .then(async (wallets) => {
         const value = await wallets.json() as WalletAssetsInfos
         res.send(value)

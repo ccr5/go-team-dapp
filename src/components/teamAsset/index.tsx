@@ -56,7 +56,7 @@ function TeamAsset(props: TeamAssetProps) {
   }, [walletsAssets])
 
   return isLoading ? <TeamAssetSkeleton /> : (
-    <div className="flex flex-col w-full max-w-xl p-4 gap-5 items-center bg-white rounded-xl">
+    <div className="flex flex-col w-full max-w-6xl p-4 gap-5 items-center bg-white rounded-xl">
       <div className="flex flex-row gap-2 w-full justify-center text-center">
         <div className="font-bold">{props.title}</div>
         { props.address && <div>({reduceAddress(props.address)})</div> }

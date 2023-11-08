@@ -13,7 +13,7 @@ function Header() {
       </div>
       <Filters />
       <div className='flex'>
-        <ConnectButton />
+        <ConnectButton showBalance={false} />
       </div>
     </div>
   )
