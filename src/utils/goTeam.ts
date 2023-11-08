@@ -6,7 +6,7 @@ export interface JobAsset {
   name: string
   type: string
   description: string
-  maxLevel: number
+  maxlevel: number
   level: number
   amountToComplete: number
   image: string
@@ -71,19 +71,7 @@ async function loadAddressAssets(wallet: string) {
     signer
   )
 
-  let end = false
-  let count = 0
-
-  while (!end) {
-    const existAsset = await erc1155.exists(count)
-
-    if (existAsset) {
-      count++
-    } else {
-      end = true
-    }
-
-  }
+  let count = Number(process.env.GO_TEAM_SEARCH_LIMIT) || 10
 
   for (let index = 0; index < count; index++) {
     const uri: string = await erc1155.uri(index)

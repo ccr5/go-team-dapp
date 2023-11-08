@@ -13,8 +13,8 @@ function AssetViewer() {
           type={asset.asset.assets.type}
           name={asset.asset.assets.name}
           assetImageUrl={asset.asset.assets.image}
-          width={200}
-          height={200}
+          width={300}
+          height={300}
           animated
         />
       </div>
@@ -26,17 +26,16 @@ function AssetViewer() {
         <div className="flex w-full justify-center items-center text-center">
           {'description' in asset.asset.assets && asset.asset.assets.description}
         </div>
-        {'maxLevel' in asset.asset.assets && 
-          <table>
-            <ul>
-              <li>level</li>
-              <li>{asset.asset.assets.level}/{asset.asset.assets.maxLevel}</li>
-            </ul>
-            <ul>
-              <li>Required amount</li>
-              <li>{asset.asset.assets.amountToComplete}</li>
-            </ul>
-          </table>
+        <div className="flex w-full justify-center items-center text-center gap-3">
+          <strong>Balance: </strong>{asset.asset.balance}
+        </div>
+        {'maxlevel' in asset.asset.assets && 
+          <div className="grid grid-cols-2 w-full justify-center items-center text-center gap-4 p-4">
+            <div className="font-bold">level</div>
+            <div>{asset.asset.assets.level}/{asset.asset.assets.maxlevel}</div>
+            <div className="font-bold">Required amount</div>
+            <div>{asset.asset.assets.amountToComplete}</div>
+          </div>
         }
         {'teamTokenReward' in asset.asset.assets && 
           <>
