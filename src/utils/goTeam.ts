@@ -41,7 +41,7 @@ async function mintToken(account: string, tokenId: number, amount: number) {
   const provider = new ethers.BrowserProvider((window as any).ethereum)
   const signer = await provider.getSigner()
   const erc1155 = new ethers.Contract(
-    process.env.GO_TEAM_ADDRESS || "",
+    process.env.NEXT_PUBLIC_GO_TEAM_ADDRESS || "",
     goTeam.abi,
     signer
   )
@@ -66,7 +66,7 @@ async function loadAddressAssets(wallet: string) {
   const provider = new ethers.BrowserProvider((window as any).ethereum)
   const signer = await provider.getSigner()
   const erc1155 = new ethers.Contract(
-    process.env.GO_TEAM_ADDRESS || "",
+    process.env.NEXT_PUBLIC_GO_TEAM_ADDRESS || "",
     goTeam.abi,
     signer
   )

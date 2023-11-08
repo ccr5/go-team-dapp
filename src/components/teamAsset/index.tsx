@@ -37,8 +37,6 @@ function TeamAsset(props: TeamAssetProps) {
   }, [network.chain, props.address])
 
   useEffect(() => {
-    console.log(walletsAssets)
-
     if (walletsAssets) {
       const milestones = walletsAssets.filter((value) => {
         return value.assets.type == "milestone" && value.balance > 0

@@ -14,7 +14,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!wallets.wallets) {
-      fetch(`${process.env.NEXT_BUCKET_URL}/wallets.json`, {cache: 'force-cache'})
+      fetch(`${process.env.NEXT_PUBLIC_BUCKET_URL}/wallets.json`, {cache: 'force-cache'})
         .then(async (res) => {
           const value = await res.json() as Wallets
           wallets.handleWalletsContext(value)

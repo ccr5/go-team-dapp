@@ -21,7 +21,7 @@ const projectId = '62c5cdca62176564fcac7632e68a90a6'
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [polygonMumbai],
-  [alchemyProvider({apiKey: process.env.ALCHEMY_KEY!})],
+  [alchemyProvider({apiKey: process.env.NEXT_PUBLIC_ALCHEMY_KEY!})],
 )
 
 const { connectors } = getDefaultWallets({
