@@ -30,7 +30,7 @@ function TeamAsset(props: TeamAssetProps) {
           setIsLoading(false)
         })
         .catch((e) => {
-          console.log('load error: ', e)
+          console.log('loadAddressAssets error: ', e)
           setIsLoading(false)
         })
     }

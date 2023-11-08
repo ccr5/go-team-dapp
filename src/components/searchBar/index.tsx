@@ -15,15 +15,15 @@ function SearchBar() {
     }
   }
 
-  return (
+  return wallets.wallets && (
     <div className="flex flex-row w-full items-center gap-3">
       <Wallet className="w-1/6" />
       <select className="w-5/6 bg-[#f5f5f5] rounded-full p-1" onClick={(e) => { updateTeamWallet(e) }} >
-        <option key={process.env.NEXT_PUBLIC_TEAM_WALLET} className="w-full text-center" value={process.env.NEXT_PUBLIC_TEAM_WALLET}>
-          {reduceAddress(process.env.NEXT_PUBLIC_TEAM_WALLET || "")}
+        <option key={wallets.wallets.team} className="w-full text-center" value={wallets.wallets.team}>
+          {reduceAddress(wallets.wallets.team)}
         </option>
         {
-          wallets.wallets && wallets.wallets.participants.map((address) => {
+          wallets.wallets.participants.map((address) => {
             return ( 
               <option key={address} className="w-full text-center" value={address}>
                 {reduceAddress(address)}

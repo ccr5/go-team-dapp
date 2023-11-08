@@ -17,7 +17,7 @@ import { WalletAssetsInfos } from '@/utils/goTeam';
 import { IAssetOnFocusContext } from '@/context/assetOnFocus/iAssetOnFocusContext';
 import { AssetOnFocusContext } from '@/context/assetOnFocus/assetOnFocusContext';
 
-const projectId = '62c5cdca62176564fcac7632e68a90a6'
+const projectId = process.env.NEXT_PUBLIC_PROJECT_ID || ""
 
 const { chains, publicClient, webSocketPublicClient } = configureChains(
   [polygonMumbai],
