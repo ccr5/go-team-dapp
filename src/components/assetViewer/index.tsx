@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { AssetOnFocusContext } from "@/context/assetOnFocus/assetOnFocusContext"
 import { AssetIcon } from "../assetIcon"
 import { Flag, FlagOutlined } from "@mui/icons-material"
+import { reduceBalance } from "@/utils/wallets"
 
 function AssetViewer() {
   const asset = useContext(AssetOnFocusContext)
@@ -54,7 +55,7 @@ function AssetViewer() {
           <>
             <div className="flex flex-row gap-4 w-full justify-center items-center text-center">
               <div className="font-bold">Reward:</div>
-              {asset.asset.assets.teamTokenReward}
+              {reduceBalance(asset.asset.assets.teamTokenReward)}
             </div>
           </>
         }

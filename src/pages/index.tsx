@@ -48,7 +48,9 @@ export default function Home() {
               </div>
             </>
           ) :
-          <div className='flex w-full h-[calc(100vh-80px)] text-center justify-center items-center'>Carteira não autorizada</div>
+          <div className='flex w-full h-[calc(100vh-80px)] text-center justify-center items-center'>
+            Wallet is not authorized
+          </div>
       }
     </main>
   )
