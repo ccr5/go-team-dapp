@@ -77,7 +77,7 @@ async function loadAddressAssets(wallet: string) {
     const uri: string = await erc1155.uri(index)
 
     if (await erc1155.exists(index)) {
-      const assetInfo = await fetch(`${process.env.NEXT_PUBLIC_GO_TEAM_API}/asset/${index.toString()}`, {cache: "force-cache"})
+      const assetInfo = await fetch(`${process.env.NEXT_PUBLIC_METADATA_BUCKET_URL}/${index.toString()}.json`, {cache: "force-cache"})
       const balance: number = Number(await erc1155.balanceOf(wallet, index))
       response.push({assets: await assetInfo.json(), balance })
     }
