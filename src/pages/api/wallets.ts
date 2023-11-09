@@ -6,7 +6,7 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  fetch(`${process.env.METADATA_BUCKET_URL}/wallets.json`)
+  fetch(`${process.env.NEXT_PUBLIC_METADATA_BUCKET_URL}/wallets.json`)
     .then(async (wallets) => {
       const value = await wallets.json()
       res.send(value)
