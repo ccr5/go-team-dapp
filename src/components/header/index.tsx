@@ -1,7 +1,5 @@
 import Image from "next/image"
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import { Filters } from "../filters"
-
 
 function Header() {
   
@@ -11,7 +9,6 @@ function Header() {
         {/* <Image alt="" src={'/uniswap.png'} height={48} width={48}/> */}
         Logo
       </div>
-      <Filters />
       <div className='flex'>
         <ConnectButton showBalance={false} />
       </div>

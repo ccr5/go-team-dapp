@@ -61,7 +61,7 @@ function TeamAsset(props: TeamAssetProps) {
         <div className="font-bold">{props.title}</div>
         { props.address && <div>({reduceAddress(props.address)})</div> }
       </div>
-      <div className="flex flex-row w-full gap-4 items-center justify-center">
+      <div className="flex flex-row w-full gap-2 items-center justify-center">
         <AssetsInfo key={1} type="milestones" amount={milestone || 0} description={true} />
         <AssetsInfo key={2} type="jobs" amount={job || 0} description={true} />
         <AssetsInfo key={3} type="rewards" amount={reward || 0} description={true} />

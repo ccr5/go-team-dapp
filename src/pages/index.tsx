@@ -1,4 +1,5 @@
 import { AssetViewer } from '@/components/assetViewer'
+import { Filters } from '@/components/filters'
 import { Header } from '@/components/header'
 import { TeamAsset } from '@/components/teamAsset'
 import { TeamWalletContext } from '@/context/teamWallet/teamWalletContext'
@@ -24,8 +25,9 @@ export default function Home() {
   })
 
   return (
-    <main className="flex flex-col w-full min-h-screen bg-[#D9D9D9] gap-4 p-5 ">
+    <main className="flex flex-col items-center w-full min-h-screen bg-[#D9D9D9] gap-4 p-4 ">
       <Header />
+      <Filters />
       {
         wallets.wallets && 
         account.address && 
